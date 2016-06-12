@@ -13,8 +13,8 @@ You also need to add **Angular Event Bubbling** ( https://github.com/Artimon/ang
 
 ```html
 <script type='text/javascript' src="vendor/angular.min.js"></script>
-<script type='text/javascript' src="vendor/event-bubbling.js"></script>
-<script type='text/javascript' src="vendor/funny-click.js"></script>
+<script type='text/javascript' src="vendor/angular-pads/event-bubbling.js"></script>
+<script type='text/javascript' src="vendor/angular-pads/funny-click.js"></script>
 <script type='text/javascript' src="app/app.js"></script>
 ```
 
@@ -41,7 +41,7 @@ Include the funny click directive into your website body.
                      image-width="65"
                      image-height="17"
                      dist-min="40"
-                     dist-max="50"
+                     dist-range="50"
                      duration="550">
     </pads-funny-click>
 </body>

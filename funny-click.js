@@ -10,13 +10,13 @@ angular.module('pads.funnyClick', ['pads.eventBubbling'])
 				var imageWidth = Math.ceil(attributes.imageWidth / 2),
 					imageHeight = Math.ceil(attributes.imageHeight / 2),
 					distMin = Math.round(attributes.distMin),
-					distMax = Math.round(attributes.distMax);
+					distRange = Math.round(attributes.distRange);
 
 				$scope.clicks = [];
 
 				$padsEventBubbling.on('pads.funnyClick', function ($event) {
 					var angle = 2 * Math.PI * Math.random(),
-						distance = distMin + distMax * Math.random(),
+						distance = distMin + distRange * Math.random(),
 						offsetX = Math.sin(angle) * distance,
 						offsetY = Math.cos(angle) * distance,
 						width = $window.innerWidth - imageWidth,
