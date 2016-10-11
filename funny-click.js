@@ -28,17 +28,19 @@ angular.module('pads.funnyClick', ['pads.eventBubbling'])
 					offsetX = Math.max(imageWidth, Math.min(offsetX, width));
 					offsetY = Math.max(imageHeight, Math.min(offsetY, height));
 
-					$scope.clicks.push({
-						offsetX: offsetX,
-						offsetY: offsetY
-					});
+					$timeout(function () {
+						$scope.clicks.push({
+							offsetX: offsetX + 'px',
+							offsetY: offsetY + 'px'
+						});
+					}, 0);
 
 					$timeout(function () {
 						$scope.clicks.shift();
 					}, attributes.duration);
 
 					$scope.bodyClickCallback && $scope.bodyClickCallback();
-				})
+				});
 			}
 		};
 	});
