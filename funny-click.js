@@ -1,8 +1,12 @@
+/* global angulr */
 
-"use strict";
+(function(angular) {
 
-angular.module('pads.funnyClick', ['pads.eventBubbling'])
-	.directive('padsFunnyClick', function ($window, $timeout, $padsEventBubbling) {
+	'use strict';
+
+	var app = angular.module('pads.funnyClick', ['pads.eventBubbling']);
+
+	app.directive('padsFunnyClick', function ($window, $timeout, padsEventBubbling) {
 		return {
 			restrict: 'E',
 			template: '<div class="funny-click" ng-repeat="click in clicks" ng-style="{ left: click.offsetX, top: click.offsetY }"></div>',
@@ -14,7 +18,7 @@ angular.module('pads.funnyClick', ['pads.eventBubbling'])
 
 				$scope.clicks = [];
 
-				$padsEventBubbling.on('pads.funnyClick', function ($event) {
+				padsEventBubbling.on('pads.funnyClick', function ($event) {
 					var angle = 2 * Math.PI * Math.random(),
 						distance = distMin + distRange * Math.random(),
 						offsetX = Math.sin(angle) * distance,
@@ -42,3 +46,4 @@ angular.module('pads.funnyClick', ['pads.eventBubbling'])
 			}
 		};
 	});
+})(angular);
